@@ -8,14 +8,14 @@ import ButtonComponent from './components/ButtonComp';
 
 function App() {
 
-  const [time, setTime] = useState({ ms: 0, s: 0, m: 0, h: 0 });
+  const [time, setTime] = useState({ ms: 0, seconds: 59, minutes: 59, hours: 0 });
   const [status, setStatus] = useState(0);
   const [period, setPeriod] = useState();
 
   let updatedMs = time.ms;
-  let updatedS = time.s;
-  let updatedM = time.m;
-  let updatedH = time.h;
+  let updatedSeconds = time.seconds;
+  let updatedMinutes = time.minutes;
+  let updatedHours = time.hours;
 
   const start = () => {
     run();
@@ -24,20 +24,27 @@ function App() {
   }
 
   const run = () => {
-    if (updatedM === 60) {
-      updatedH++;
-      updatedM = 0;
+    if (updatedHours === 24) {
+      updatedHours = 0;
+      updatedMinutes = 0;
+      updatedSeconds = 0;
+      updatedMs = 0;
+      return
     }
-    if (updatedS === 60) {
-      updatedM++;
-      updatedS = 0;
+    if (updatedMinutes === 60) {
+      updatedHours++;
+      updatedMinutes = 0;
+    }
+    if (updatedSeconds === 60) {
+      updatedMinutes++;
+      updatedSeconds = 0;
     }
     if (updatedMs === 100) {
-      updatedS++;
+      updatedSeconds++;
       updatedMs = 0;
     }
     updatedMs++;
-    return setTime({ ms: updatedMs, s: updatedS, m: updatedM, h: updatedH });
+    return setTime({ ms: updatedMs, seconds: updatedSeconds, minutes: updatedMinutes, hours: updatedHours });
   }
 
   const stop = () => {
@@ -48,7 +55,7 @@ function App() {
   const reset = () => {
     clearInterval(period);
     setStatus(0);
-    setTime({ ms: 0, s: 0, m: 0, h: 0 })
+    setTime({ ms: 0, seconds: 0, minutes: 0, hours: 0 })
   }
 
   const resume = () => start()

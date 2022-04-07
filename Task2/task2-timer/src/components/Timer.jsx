@@ -13,10 +13,10 @@ const TimerPanel = (props) => {
   return (
     <ThemeProvider theme={theme}>
       <Typography color="gray" variant="h4" component="h2">
-        <span>{props.time.h}</span>:
-        <span>{props.time.m}</span>:
-        <span>{props.time.s}</span>:
-        <span>{props.time.ms}</span>
+        <span>{props.time.hours <= 10 ? "0" + props.time.hours : props.time.hours}</span>:
+        <span>{props.time.minutes <= 10 ? "0" + props.time.minutes : props.time.minutes}</span>:
+        <span>{props.time.seconds <= 10 ? "0" + props.time.seconds : props.time.seconds}</span>:
+        <span>{props.time.ms <= 10 ? "0" + props.time.ms : props.time.ms}</span>
       </Typography>
     </ThemeProvider>
   );
