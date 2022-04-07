@@ -1,0 +1,12 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh
+}
+
+.buttons__items {
+  display: flex;
+  gap: 20px;
+}
