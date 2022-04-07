@@ -14,6 +14,7 @@ function checkDate(timestamp) {
     const currentMonth = currentDate.getMonth() + 1;
     const currentYear = currentDate.getFullYear();
 
+    // проверку даты внёс в тернарный оператор, а сама проверка идёт через цепочку логических И, чтобы не делать лишних проверок
     const isSameDate = (year == currentYear) && (month == currentMonth) && (day == currentDay) ? true : false;
 
     return {
