@@ -1,6 +1,5 @@
 // import logo from './logo.svg';
 import './App.css';
-import Button from '@mui/material/Button';
 import React from 'react';
 import { useState } from 'react';
 import TimerPanel from './components/Timer';
@@ -8,7 +7,7 @@ import ButtonComponent from './components/ButtonComp';
 
 function App() {
 
-  const [time, setTime] = useState({ ms: 0, seconds: 59, minutes: 59, hours: 0 });
+  const [time, setTime] = useState({ ms: 0, seconds: 0, minutes: 0, hours: 0 });
   const [status, setStatus] = useState(0);
   const [period, setPeriod] = useState();
 
